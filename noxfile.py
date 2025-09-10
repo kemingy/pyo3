@@ -726,7 +726,7 @@ def check_guide(session: nox.Session):
         "--include-fragments",
         str(PYO3_GUIDE_SRC),
         *remap_args,
-        "--accept=200,429",
+        "--accept=200",
         *session.posargs,
     )
     # check external links in the docs
@@ -740,9 +740,7 @@ def check_guide(session: nox.Session):
         # exclude some old http links from copyright notices, known to fail
         "--exclude=http://www.adobe.com/",
         "--exclude=http://www.nhncorp.com/",
-        "--accept=200,429",
-        # reduce the concurrency to avoid rate-limit from `pyo3.rs`
-        "--max-concurrency=32",
+        "--accept=200,403",
         *session.posargs,
     )
 

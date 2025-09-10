@@ -1,0 +1,5 @@
+host_stats = true
+
+[hosts."pyo3.rs"]
+concurrency = 8
+request_interval = "1s"
