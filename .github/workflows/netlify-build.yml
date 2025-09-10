@@ -33,13 +33,19 @@ jobs:
         with:
           tool: mdbook, mdbook-linkcheck
 
-      - name: Link Checker
-        id: lychee
-        uses: lycheeverse/lychee-action@v2
-        with:
-          # setup lychee but don't run it yet
-          args: --version
-          lycheeVersion: nightly
+      # - name: Link Checker
+      #   id: lychee
+      #   uses: lycheeverse/lychee-action@v2
+      #   with:
+      #     # setup lychee but don't run it yet
+      #     args: --version
+      #     lycheeVersion: nightly
+
+      - name: rust
+        uses: dtolnay/rust-toolchain@stable
+      - name: install lychee
+        run: |
+          cargo install lychee --git https://github.com/lycheeverse/lychee.git --branch feat/per-host-rate-limiting
 
       - name: Prepare tag
         id: prepare_tag
