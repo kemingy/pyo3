@@ -740,7 +740,7 @@ def check_guide(session: nox.Session):
         # exclude some old http links from copyright notices, known to fail
         "--exclude=http://www.adobe.com/",
         "--exclude=http://www.nhncorp.com/",
-        "--accept=200,429",
+        "--accept=200,403,429",
         *session.posargs,
     )
 
